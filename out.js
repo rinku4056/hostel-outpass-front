@@ -6,7 +6,7 @@
  console.log(cardno);
  console.log(password);
  const API_URL =  "https://vercel-frontend-1.onrender.com";
- console.log("API URL:", process.env.REACT_APP_API_URL);
+ 
  const SubmitEvent =document.querySelector('input[type="submit"]');
  login.addEventListener('click',async function(e) {
  e.preventDefault();
