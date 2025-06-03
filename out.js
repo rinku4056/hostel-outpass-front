@@ -12,6 +12,8 @@
  e.preventDefault();
  const cardno = document.querySelector('.cardno').value;
  const password = document.querySelector('.pass').value;
+ console.log("Attempting login request to:", API_URL + "/login");
+
  const response= await fetch(`${API_URL}/login`,{
       method:'POST',
       headers:{
