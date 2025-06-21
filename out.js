@@ -26,6 +26,9 @@
 
  console.log('Response Status:', response.status); 
  if(response.ok){
+   const data = await response.json();
+  const { token } = data;
+  localStorage.setItem("auth_token", token);
     window.location.href="hostelpass.html";
  }
  else{
