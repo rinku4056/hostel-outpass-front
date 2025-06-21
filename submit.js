@@ -1,5 +1,5 @@
 // const { json } = require("body-parser");
-
+ 
 document.addEventListener('DOMContentLoaded',function(){
    const form =document.querySelector('form');
    if(form){
@@ -24,17 +24,15 @@ form.addEventListener('submit', async function (e) {
       console.log(timein);
    
     try{
-   const final=await fetch('https://vercel-frontend-1.onrender.com/submit',{
-      method:'POST',
+   const final=await fetch("https://vercel-frontend-1.onrender.com/submit",{
+      method:"POST",
       headers:{
          'Content-Type':'application/json',
        },
-       credentials: 'include',
+       credentials: "include",
        body:JSON.stringify({name,roomno,reason,timeout,timein}),
   
 });
- 
-
 if(final.ok){
    const result=await final.text();
    console.log(result)
@@ -51,3 +49,10 @@ else {
 } else {
    console.error('Form element not found.');
   }});
+  
+  fetch('https://vercel-frontend-1.onrender.com/testcookie', {
+  method: 'GET',
+  credentials: 'include',
+})
+.then(res => res.json())
+.then(data => console.log(data));
