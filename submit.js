@@ -1,5 +1,5 @@
 // const { json } = require("body-parser");
- 
+  
 document.addEventListener('DOMContentLoaded',function(){
    const form =document.querySelector('form');
    if(form){
@@ -22,16 +22,16 @@ form.addEventListener('submit', async function (e) {
       console.log(reason);
       console.log(timeout);
       console.log(timein);
-   
+      const token = localStorage.getItem("auth_token");
+      console.log("Token being used:", token);
     try{
    const final=await fetch("https://vercel-frontend-1.onrender.com/submit",{
       method:"POST",
       headers:{
          'Content-Type':'application/json',
-       },
-       credentials: "include",
+         "Authorization": `Bearer ${token}`,
+      },
        body:JSON.stringify({name,roomno,reason,timeout,timein}),
-  
 });
 if(final.ok){
    const result=await final.text();
@@ -49,10 +49,10 @@ else {
 } else {
    console.error('Form element not found.');
   }});
-  
-  fetch('https://vercel-frontend-1.onrender.com/testcookie', {
-  method: 'GET',
-  credentials: 'include',
-})
-.then(res => res.json())
-.then(data => console.log(data));
+
+//   fetch('https://vercel-frontend-1.onrender.com/testcookie', {
+//   method: 'GET',
+//   credentials: 'include',
+// })
+// .then(res => res.json())
+// .then(data => console.log(data));
